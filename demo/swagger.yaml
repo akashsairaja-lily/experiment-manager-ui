@@ -1,0 +1,229 @@
+openapi: 3.0.0
+info:
+  title: Product Type Review API
+  description: API for reviewing, filtering, and approving products in experiments
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+    description: Development server
+paths:
+  /experiments:
+    get:
+      summary: Get all experiments
+      description: Retrieves a list of experiments with optional filtering
+      parameters:
+        - in: query
+          name: name
+          schema:
+            type: string
+          description: Filter experiments by name
+      responses:
+        '200':
+          description: List of experiments
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Experiment'
+
+  /experiments/{experimentId}:
+    get:
+      summary: Get experiment by ID
+      description: Retrieves a specific experiment by ID
+      parameters:
+        - in: path
+          name: experimentId
+          required: true
+          schema:
+            type: string
+          description: ID of the experiment
+      responses:
+        '200':
+          description: Experiment details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Experiment'
+        '404':
+          description: Experiment not found
+
+  /products:
+    post:
+      summary: Get filtered products
+      description: Retrieves products with filtering, pagination, and sorting
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                searchParams:
+                  type: object
+                  properties:
+                    filters:
+                      type: object
+                      properties:
+                        gender:
+                          type: array
+                          items:
+                            type: string
+                        productType:
+                          type: array
+                          items:
+                            type: string
+                        status:
+                          type: array
+                          items:
+                            type: string
+                pagination:
+                  type: object
+                  properties:
+                    pageNumber:
+                      type: integer
+                      default: 1
+                    pageSize:
+                      type: integer
+                      default: 10
+                    sorting:
+                      type: object
+                      properties:
+                        sortBy:
+                          type: string
+                          example: "productType"
+                        sortOrder:
+                          type: string
+                          enum: [ASC, DESC]
+                          example: "ASC"
+      responses:
+        '200':
+          description: List of products with pagination info
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  products:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Product'
+                  totalCount:
+                    type: integer
+                  pageNumber:
+                    type: integer
+                  pageSize:
+                    type: integer
+
+  /products/approve:
+    post:
+      summary: Approve products
+      description: Approve one or multiple products
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                productIds:
+                  type: array
+                  items:
+                    type: string
+                experimentId:
+                  type: string
+      responses:
+        '200':
+          description: Products successfully approved
+        '400':
+          description: Bad request
+
+  /product-types:
+    get:
+      summary: Get product types
+      description: Retrieves list of product types with counts and distributions
+      parameters:
+        - in: query
+          name: experimentId
+          schema:
+            type: string
+          description: Filter by experiment ID
+      responses:
+        '200':
+          description: List of product types
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProductType'
+
+  /experiment/{experimentId}/complete:
+    post:
+      summary: Mark experiment as complete
+      description: Marks an experiment's audit as complete
+      parameters:
+        - in: path
+          name: experimentId
+          required: true
+          schema:
+            type: string
+          description: ID of the experiment
+      responses:
+        '200':
+          description: Experiment marked as complete
+        '404':
+          description: Experiment not found
+
+components:
+  schemas:
+    Experiment:
+      type: object
+      properties:
+        experimentId:
+          type: string
+        experimentName:
+          type: string
+        status:
+          type: string
+          enum: [active, completed]
+
+    Product:
+      type: object
+      properties:
+        productId:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        brand:
+          type: string
+        color:
+          type: string
+        gender:
+          type: string
+        ageGroup:
+          type: string
+        availability:
+          type: string
+        imageLink:
+          type: string
+        additionalImageLinks:
+          type: array
+          items:
+            type: string
+        approved:
+          type: boolean
+          default: false
+
+    ProductType:
+      type: object
+      properties:
+        name:
+          type: string
+        count:
+          type: integer
+        percentageDistribution:
+          type: number
+          format: float
