@@ -2,6 +2,12 @@
 
 The main task-related functionality in this repository is centered around the **Product Type Review / Control Flow** feature, which involves reviewing, filtering, and approving products in the context of experiments. Here’s a detailed breakdown of the key screens and their components:
 
+- A **recorded video** is attached to this task—please use it as a reference for expected UI/UX, workflows, and edge cases.
+- Make sure your mock implementation matches the flows and behaviors demonstrated in the video.
+- If anything in the UI or workflow is unclear, refer to the video for clarification before reaching out.
+
+---
+
 ---
 
 ## 1. **Control Flow Screen (`/`, `/experiments`, `/experiment/:experimentId`)**
@@ -23,12 +29,7 @@ Allows users to filter products and select experiments to review.
     - Collapsible list of experiments, selectable.
 - **Product Type Filters:**
     - Checkbox list for selecting product types.
-    - Section is collapsible.
-- **Gender Filters:**
-    - Checkbox list for selecting gender categories.
-    - Section is collapsible.
-- **Product Status Filters:**
-    - Checkbox list for product statuses (e.g., Approved, Not Approved).
+    - Section is collapsible. .
 - **Pagination Controls:**
     - Page size selector.
     - Total pages display.
@@ -49,19 +50,6 @@ Displays products for review, allows selecting, approving, and paginating throug
         - Selection (checkbox or click)
         - Context menu (right-click) for actions on a product.
 
-- **Context Menu:**
-    - Triggered by right-clicking a product card.
-    - Actions include:
-        - Approve selected products.
-        - Move selected products to the top of the page.
-
-- **Bulk Actions:**
-    - Approve all selected products.
-
-- **Product Approval Modal (ProductApprovalModal):**
-    - Modal confirmation for approving products.
-    - Used for both single and bulk approval flows, and when moving to the next page with unapproved products.
-
 - **Pagination:**
     - Controls for navigating between pages of products.
     - Disabled if products are selected.
@@ -69,23 +57,8 @@ Displays products for review, allows selecting, approving, and paginating throug
 - **Back to Top Button:**
     - Scrolls the product grid to the top.
 
-**Shortcuts:**
-- “Select All” keyboard shortcut support.
-
 **Loading State:**
 - Backdrop loading spinner shown when fetching or updating products.
-
----
-
-### C. **Confirmation & Status Modals**
-- **Experiment Approval Modal (ApprovalModal):**
-    - Pops up when all tasks (product reviews) in an experiment are complete.
-    - Prompts user to confirm marking the experiment as “audit complete”.
-
-- **Error/Success Toasts:**
-    - Notifications for actions like approval, errors, and saving updates.
-
----
 
 ### D. **Empty State**
 - If no subsidiary or experiment is selected, a centered message prompts the user to make a selection.
@@ -112,10 +85,9 @@ Displays products for review, allows selecting, approving, and paginating throug
 - **React**: UI library for building component-based user interfaces.
 - **React Router**: Handles routing/navigation between screens (`/`, `/experiments`, `/experiment/:experimentId`).
 - **Vite**: Modern frontend build tool for fast development and optimized production builds.
+
+### Additional/Bonus Tools - (Optional but not recommended)
 - **TanStack**: Advanced state management and utilities (commonly used for TanStack Query, Virtual, Table, etc.).
-
-### Additional/Bonus Tools
-
 - **Lodash**: Utility library for common JS data operations (e.g., isEmpty, get).
 - **React Toastify**: For non-intrusive toast notifications upon user actions and errors.
 - **Tailwind CSS**: Utility-first CSS framework for rapid UI styling.
@@ -149,7 +121,7 @@ To fully mock the backend for this flow:
 
 ---
 
-## 7. **Pull Request and Branching Standards**
+## 7. **Pull Request and Branching Standards (Bonus)** 
 
 **It is mandatory to follow these PR and branch management standards for this task:**
 
@@ -198,15 +170,11 @@ main
 
 ---
 
-## 9. **Additional Notes**
+## 9. **Demo**
 
-- A **recorded video** is attached to this task—please use it as a reference for expected UI/UX, workflows, and edge cases.
-- Make sure your mock implementation matches the flows and behaviors demonstrated in the video.
-- If anything in the UI or workflow is unclear, refer to the video for clarification before reaching out.
+[Watch Demo Video](/demo/sample.mov)
 
----
-
-## 10. **Summary**
+## 11. **Summary**
 **Task screens** include:
 - A filterable sidebar for selecting experiments and filters.
 - A responsive product grid with context menus and bulk actions.
