@@ -1,12 +1,13 @@
 # Task-Related Screens in Power Tools UI
 
+**Project Summary:**  
+Product Catalog Management and Validation Tool. Each experiment contains a list of different products and product types. Users can select a project (experiment), review the associated products, and approve them as part of the workflow.
+
 The main task-related functionality in this repository is centered around the **Product Type Review / Control Flow** feature, which involves reviewing, filtering, and approving products in the context of experiments. Here’s a detailed breakdown of the key screens and their components:
 
 - A **recorded video** is attached to this task—please use it as a reference for expected UI/UX, workflows, and edge cases.
 - Make sure your mock implementation matches the flows and behaviors demonstrated in the video.
 - If anything in the UI or workflow is unclear, refer to the video for clarification before reaching out.
-
----
 
 ---
 
@@ -25,7 +26,7 @@ Allows users to filter products and select experiments to review.
 
 **Components & Interactions:**
 - **Experiment Search & Selection:**
-    - Search bar to filter experiments by name.
+    - Search bar implemented with debounced input to efficiently filter experiments by name.
     - Collapsible list of experiments, selectable.
 - **Product Type Filters:**
     - Checkbox list for selecting product types.
@@ -34,8 +35,8 @@ Allows users to filter products and select experiments to review.
     - Page size selector.
     - Total pages display.
 
-**Loading State:**
-- Shows a loader (FilterLoader) while aggregation updates.
+- **Loading State:**
+  - Shows a loader (FilterLoader) while aggregation updates.
 
 ---
 
@@ -60,7 +61,7 @@ Displays products for review, allows selecting, approving, and paginating throug
 **Loading State:**
 - Backdrop loading spinner shown when fetching or updating products.
 
-### D. **Empty State**
+### C. **Empty State**
 - If no subsidiary or experiment is selected, a centered message prompts the user to make a selection.
 
 ---
@@ -86,7 +87,7 @@ Displays products for review, allows selecting, approving, and paginating throug
 - **React Router**: Handles routing/navigation between screens (`/`, `/experiments`, `/experiment/:experimentId`).
 - **Vite**: Modern frontend build tool for fast development and optimized production builds.
 
-### Additional/Bonus Tools - (Optional but not recommended)
+### Additional/Bonus Tools - (Optional, Open to your choice)
 - **TanStack**: Advanced state management and utilities (commonly used for TanStack Query, Virtual, Table, etc.).
 - **Lodash**: Utility library for common JS data operations (e.g., isEmpty, get).
 - **React Toastify**: For non-intrusive toast notifications upon user actions and errors.
@@ -173,6 +174,27 @@ main
 ## 9. **Demo**
 
 [Watch Demo Video](/demo/sample.mov)
+
+## 10. **Estimated Time Allocation by Experience Level**
+
+Below is a recommended time allocation for each major functionality, based on years of frontend engineering experience. The total time for any level should not exceed 6 hours.
+
+| Functionality/Component | < 3 Year Exp (min) | < 6 Years Exp (min) | >6 Years Exp (min) |
+|-------------------------|:------------------:|:-------------------:|:------------------:|
+| Layout & Local Setup    |         40         |         25          |         20         |
+| Experiment List         |         50         |         40          |         30         |
+| Product Types           |         45         |         40          |         30         |
+| Product Catalog         |         50         |         40          |         30         |
+| Other                   |         20         |         15          |         10         |
+| **Total**               |       **205**      |       **160**       |      **120**       |
+
+- **1 Year Experience:** ~6 hours
+- **3+ Years Experience:** ~4.7 hours
+- **6+ Years Experience:** ~3.3 hours
+
+> **Note:** These are suggested maximums. Actual time may vary based on familiarity with the stack and requirements.
+
+---
 
 ## 11. **Summary**
 **Task screens** include:

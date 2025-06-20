@@ -158,23 +158,6 @@ paths:
                 items:
                   $ref: '#/components/schemas/ProductType'
 
-  /experiment/{experimentId}/complete:
-    post:
-      summary: Mark experiment as complete
-      description: Marks an experiment's audit as complete
-      parameters:
-        - in: path
-          name: experimentId
-          required: true
-          schema:
-            type: string
-          description: ID of the experiment
-      responses:
-        '200':
-          description: Experiment marked as complete
-        '404':
-          description: Experiment not found
-
 components:
   schemas:
     Experiment:

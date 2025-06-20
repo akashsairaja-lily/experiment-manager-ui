@@ -1,0 +1,37 @@
+[
+  {
+    "name": "skincare",
+    "count": 80,
+    "percentageDistribution": 86.96
+  },
+  {
+    "name": "unknown_product_type",
+    "count": 5,
+    "percentageDistribution": 5.43
+  },
+  {
+    "name": "face",
+    "count": 2,
+    "percentageDistribution": 2.17
+  },
+  {
+    "name": "lips",
+    "count": 2,
+    "percentageDistribution": 2.17
+  },
+  {
+    "name": "fragrance",
+    "count": 1,
+    "percentageDistribution": 1.09
+  },
+  {
+    "name": "sets",
+    "count": 1,
+    "percentageDistribution": 1.09
+  },
+  {
+    "name": "shaving_and_beard",
+    "count": 1,
+    "percentageDistribution": 1.09
+  }
+]
