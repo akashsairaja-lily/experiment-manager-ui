@@ -192,7 +192,7 @@ Below is a recommended time allocation for each major functionality, based on ye
 - **3+ Years Experience:** ~4.7 hours
 - **6+ Years Experience:** ~3.3 hours
 
-> **Note:** These are suggested maximums. Actual time may vary based on familiarity with the stack and requirements.
+> **Note:** These are suggested maximums. Actual time may vary based on familiarity with the stack, requirements, and person.
 
 ---
 
