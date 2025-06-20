@@ -177,7 +177,7 @@ main
 
 ## 10. **Estimated Time Allocation by Experience Level**
 
-Below is a recommended time allocation for each major functionality, based on years of frontend engineering experience. The total time for any level should not exceed 6 hours.
+Below is a recommended time allocation for each major functionality, based on years of frontend engineering experience. The allocation is given in minutes and converted to hours for clarity.
 
 | Functionality/Component | < 3 Year Exp (min) | < 6 Years Exp (min) | >6 Years Exp (min) |
 |-------------------------|:------------------:|:-------------------:|:------------------:|
@@ -188,9 +188,10 @@ Below is a recommended time allocation for each major functionality, based on ye
 | Other                   |         20         |         15          |         10         |
 | **Total**               |       **205**      |       **160**       |      **120**       |
 
-- **1 Year Experience:** ~6 hours
-- **3+ Years Experience:** ~4.7 hours
-- **6+ Years Experience:** ~3.3 hours
+**Total Time:**
+- < 3 Year Exp: 205 minutes (~3.42 hours)
+- < 6 Years Exp: 160 minutes (~2.67 hours)
+- 6+ Years Exp: 120 minutes (2 hours)
 
 > **Note:** These are suggested maximums. Actual time may vary based on familiarity with the stack, requirements, and person.
 
